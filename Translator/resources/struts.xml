@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation"
+		value="false" />
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.custom.i18n.resources"
+		value="ApplicationResources" />
+
+	<package name="default" extends="struts-default" namespace="/">
+		<action name="english2Irish"
+			method="englishToIrish"
+			class="com.saurabh.onlinetranslation.English2Irish">
+			<result name="SUCCESS">Translate1.jsp</result>						
+			<result name="ERROR">Error.jsp</result>
+		</action>
+		<action name="irish2English"
+		class="com.saurabh.onlinetranslation.Irish2English"
+		method="irishToEnglish">
+		<result name = "SUCCESS">Translate2.jsp</result>
+		<result name = "ERROR">Error.jsp</result>
+		</action>
+		<action name="login"
+		class="com.saurabh.onlinetranslation.LoginAction" 
+		method="adminPanel">
+		<result name = "SUCCESS">Panel.jsp</result>
+		<result name = "ERROR">Error.jsp</result>
+		</action>
+		<action name="instruction"
+		class="com.saurabh.onlinetranslation.InstructionGuidelines"
+		method="instructions">
+		<result name = "SUCCESS">Guidelines.jsp</result>
+		<result name = "ERROR">Error.jsp</result>
+		</action>
+		<action name="translate"
+		class="com.saurabh.onlinetranslation.English2Irish"
+		method="translate">
+		<result name = "SUCCESS">Translate1.jsp</result>
+		<result name = "ERROR">Error.jsp</result>
+		<result name="INPUT">Translate1.jsp</result>
+		<result name="input">Translate1.jsp</result>
+		</action>
+		<action name="translate2"
+		class="com.saurabh.onlinetranslation.Irish2English"
+		method="translate2">
+		<result name = "SUCCESS">Translate2.jsp</result>
+		<result name = "ERROR">Error.jsp</result>
+		<result name="INPUT">Translate2.jsp</result>
+		<result name="input">Translate2.jsp</result>
+		</action>
+		<action name="loginPanel"
+		class = "com.saurabh.onlinetranslation.LoginAuthenticate"
+		method="authenticate">
+		<result name = "SUCCESS">AdminOptions.jsp</result>
+		<result name = "ERROR">Panel.jsp</result>
+		</action>
+		<action name="english2IrishDB"
+		class="com.saurabh.onlinetranslation.English2IrishDB"
+		method="englishToIrishDB">
+		<result name="SUCCESS">DisplayEnglishDB.jsp</result>
+		</action>
+		<action name="irish2EnglishDB"
+		class = "com.saurabh.onlinetranslation.Irish2EnglishDB"
+		method="irishToEnglishDB">
+		<result name="SUCCESS">DisplayIrishDB.jsp</result>
+		</action>
+		<action name="sentimentinput"
+		class = "com.saurabh.onlinetranslation.SentimentInput"
+		method="sentimentInput">
+		<result name="SUCCESS">SentimentInput.jsp</result>
+		</action>
+		<action name="sentimentanalysis"
+		class = "com.saurabh.onlinetranslation.SentimentVisualize"
+		method="sentimentAnalysis">
+		<result name="SUCCESS">index2.jsp</result>
+		</action>
+		<action name="sentimentanalysis1"
+		class = "com.saurabh.onlinetranslation.SentimentVisualize1"
+		method="sentimentAnalysis1">
+		<result name="SUCCESS">index21.jsp</result>
+		</action>
+	</package>
+</struts>
